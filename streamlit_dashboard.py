@@ -10,8 +10,6 @@ import plotly.express as px
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 import pandas as pd
-#import matplotlib.pyplot as pl
-#import seaborn as sns
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(
