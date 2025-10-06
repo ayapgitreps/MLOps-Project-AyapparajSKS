@@ -20,7 +20,24 @@ logging.basicConfig(level=logging.INFO,
 MLFLOW_EXPERIMENT_NAME="Retail_customer_segmentation"
 
 #
-DATA_PATH="customer_shopping_data.csv"
+url='https://raw.githubusercontent.com/ayapgitreps/MLOps-Project-AyapparajSKS/refs/heads/main/customer_shopping_data.csv'
+
+try:
+    df=pd.read_csv(url)
+    print("Successfully loaded data from Github.")
+
+
+#Loading the kaggle shopping mall dataset
+#df=pd.read_csv("/home/vboxuser/Downloads/customer_shopping_data.csv")
+
+#Changing the format for invoice_date column
+#df['invoice_date']=pd.to_datetime(df['invoice_date'],format='%d/%m/%Y')
+
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+
+DATA_PATH=df
 MODEL_DIR="models"
 MODEL_PATH=os.path.join(MODEL_DIR,"segmentation_model.pkl")
 SCALER_PATH=os.path.join(MODEL_DIR,"scaler.pkl")
