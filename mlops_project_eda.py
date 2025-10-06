@@ -3,12 +3,24 @@
 import pandas as pd
 
 #Loading the kaggle shopping mall dataset
-df=pd.read_csv("customer_shopping_data.csv")
+url='https://raw.githubusercontent.com/ayapgitreps/MLOps-Project-AyapparajSKS/refs/heads/main/customer_shopping_data.csv'
+
+try:
+    df=pd.read_csv(url)
+    print("Successfully loaded data from Github.")
+
+
+#Loading the kaggle shopping mall dataset
+#df=pd.read_csv("/home/vboxuser/Downloads/customer_shopping_data.csv")
+
+#Changing the format for invoice_date column
+#df['invoice_date']=pd.to_datetime(df['invoice_date'],format='%d/%m/%Y')
+
+except Exception as e:
+    print(f"An error occurred: {e}")
 
 #Changing the format for invoice_date column
 df['invoice_date']=pd.to_datetime(df['invoice_date'],format='%d/%m/%Y')
-
-print(df.head())
 
 print(df.info())
 
